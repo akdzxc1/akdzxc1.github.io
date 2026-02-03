@@ -5,15 +5,15 @@
 <title>ilycutie-poopoo</title>
 <style>
 body { margin:0; font-family:'Comic Sans MS', cursive, sans-serif; background:#fff0f5; text-align:center; overflow-x:hidden; }
-h1 { margin-top: 100px; font-size:3em; color:#ff4d6d; z-index:1; position:relative;}
-p { font-size:1.8em; margin:40px; z-index:1; position:relative;}
-button { display:inline-block; margin:20px; padding:20px 40px; font-size:1.5em; border-radius:15px; border:none; cursor:pointer; color:white; transition: transform 0.2s; z-index:1; position:relative;}
-button:hover { transform: scale(1.1);}
-.yes { background:#ff4d6d;}
-.no { background:#555555;}
-.btn1 { background:#ff4d6d;}
-.btn2 { background:#ff85a1;}
-#ultimate-fireworks-bg { position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; overflow:hidden; z-index:0;}
+h1 { margin-top: 100px; font-size:3em; color:#ff4d6d; position:relative; z-index:1; }
+p { font-size:1.8em; margin:40px; position:relative; z-index:1; }
+button { display:inline-block; margin:20px; padding:20px 40px; font-size:1.5em; border-radius:15px; border:none; cursor:pointer; color:white; transition: transform 0.2s; position:relative; z-index:1; }
+button:hover { transform: scale(1.1); }
+.yes { background:#ff4d6d; }
+.no { background:#555555; }
+.btn1 { background:#ff4d6d; }
+.btn2 { background:#ff85a1; }
+#ultimate-fireworks-bg { position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; overflow:hidden; z-index:0; }
 </style>
 </head>
 <body>
@@ -26,7 +26,6 @@ button:hover { transform: scale(1.1);}
 </div>
 
 <div id="message-area"></div>
-
 <div id="ultimate-fireworks-bg"></div>
 
 <script>
@@ -46,7 +45,7 @@ function randomArcDistance(){
 function launchFirework(){ 
     const centerX=Math.random()*window.innerWidth; 
     const centerY=Math.random()*window.innerHeight; 
-    const count = Math.floor(Math.random()*40+40); // dense
+    const count = Math.floor(Math.random()*40+40); 
     for(let i=0;i<count;i++){
         const confetti = document.createElement("div");
         confetti.textContent = emojis[Math.floor(Math.random()*emojis.length)];
@@ -66,13 +65,14 @@ function launchFirework(){
         setTimeout(()=> confetti.remove(), 2000);
     }
 }
-setInterval(launchFirework, 150); // faster explosions
+setInterval(launchFirework, 150); 
 
 // ----- One-page Logic -----
 const messageArea = document.getElementById("message-area");
 const mainButtons = document.getElementById("main-buttons");
 const mainTitle = document.getElementById("main-title");
 
+// First buttons
 document.getElementById("btnYes").addEventListener("click", function() {
   mainTitle.style.display = "none";
   mainButtons.style.display = "none";
@@ -83,9 +83,6 @@ document.getElementById("btnYes").addEventListener("click", function() {
     <button class="btn1" id="bigYes">yes</button>
     <button class="btn2" id="bigYes2">yes!!</button>
   `;
-
-  document.getElementById("bigYes").addEventListener("click", showBigYay);
-  document.getElementById("bigYes2").addEventListener("click", showBigYay);
 });
 
 document.getElementById("btnNo").addEventListener("click", function() {
@@ -96,15 +93,21 @@ document.getElementById("btnNo").addEventListener("click", function() {
     <p>ur acc a gayne and teehee that was a trick bc ur mine so idc ur my valentine<br>u better click that button there</p>
     <button id="trickBtn">i WILL be your valentine, anisha, i just clicked the wrong button oops</button>
   `;
+});
 
-  document.getElementById("trickBtn").addEventListener("click", function() {
-    document.getElementById("btnYes").click();
-  });
+// ----- Event Delegation for dynamic buttons -----
+messageArea.addEventListener("click", function(e){
+    const id = e.target.id;
+    if(id === "bigYes" || id === "bigYes2"){
+        showBigYay();
+    } else if(id === "trickBtn"){
+        document.getElementById("btnYes").click(); // trigger Yes flow
+    }
 });
 
 function showBigYay() {
   alert(`OMG YAY!!!
-ILYSM CUTIE TYSM FOR BEING MY VALENTINE❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️`);
+ILYSM CUTIE TYSM FOR BEING MY VALENTINE❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️`);
 }
 </script>
 </body>
