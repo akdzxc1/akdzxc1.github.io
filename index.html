@@ -13,7 +13,9 @@ button:hover { transform: scale(1.1); }
 .no { background:#555555; }
 .btn1 { background:#ff4d6d; }
 .btn2 { background:#ff85a1; }
+#trickBtn { background:#ff4d6d; color:white; font-weight:bold; }
 #ultimate-fireworks-bg { position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; overflow:hidden; z-index:0; }
+#sad-cat { max-width:50%; border-radius:20px; margin-top:20px; }
 </style>
 </head>
 <body>
@@ -85,6 +87,7 @@ document.getElementById("btnYes").addEventListener("click", function() {
   `;
 });
 
+// No button
 document.getElementById("btnNo").addEventListener("click", function() {
   mainTitle.style.display = "none";
   mainButtons.style.display = "none";
@@ -92,6 +95,8 @@ document.getElementById("btnNo").addEventListener("click", function() {
   messageArea.innerHTML = `
     <p>ur acc a gayne and teehee that was a trick bc ur mine so idc ur my valentine<br>u better click that button there</p>
     <button id="trickBtn">i WILL be your valentine, anisha, i just clicked the wrong button oops</button>
+    <br>
+    <img id="sad-cat" src="https://i.imgflip.com/5h1tbc.jpg" alt="sad meme cat">
   `;
 });
 
@@ -107,7 +112,7 @@ messageArea.addEventListener("click", function(e){
 
 function showBigYay() {
   alert(`OMG YAY!!!
-ILYSM CUTIE TYSM FOR BEING MY VALENTINE❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️`);
+ILYSM CUTIE TYSM FOR BEING MY VALENTINE❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️`);
 }
 </script>
 </body>
